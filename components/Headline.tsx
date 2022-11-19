@@ -1,6 +1,10 @@
 import styles from "../styles/Home.module.css";
 
-export function Headline(props) {
+type Props = {
+  page: string;
+};
+
+export const Headline: React.FC<Props> = (props) => {
   return (
     <div>
       <h1 className={styles.title}>
@@ -13,4 +17,4 @@ export function Headline(props) {
       </p>
     </div>
   );
-}
+};
