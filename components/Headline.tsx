@@ -7,16 +7,14 @@ type Props = {
 };
 
 export const Headline: React.FC<Props> = (props) => {
-  // console.log(props);
+  const { page, children } = props;
   return (
     <div>
       <h1 className={styles.title}>
-        Welcome to <a href="https://nextjs.org">Next.js! {props.page} Page</a>
+        Welcome to <a href="https://nextjs.org">Next.js! {page} Page</a>
       </h1>
 
-      <p className={styles.description}>
-        Get started by editing {props.children}
-      </p>
+      <p className={styles.description}>Get started by editing {children}</p>
       {/* <button onClick={props.onClick}>ボタン</button> */}
     </div>
   );
