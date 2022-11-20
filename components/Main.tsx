@@ -1,6 +1,6 @@
 import { Headline } from "../components/Headline";
 import { Links } from "../components/Links";
-import styles from "../styles/Home.module.css";
+import styles from "./Main.module.css";
 
 type Props = {
   page: string;
