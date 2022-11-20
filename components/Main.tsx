@@ -7,10 +7,11 @@ type Props = {
 };
 
 export const Main: React.FC<Props> = (props) => {
+  const { page } = props;
   return (
     <main className={styles.main}>
-      <Headline page={props.page}>
-        <code className={styles.code}>pages/{props.page}.tsx</code>
+      <Headline page={page}>
+        <code className={styles.code}>pages/{page}.tsx</code>
       </Headline>
 
       <Links />
