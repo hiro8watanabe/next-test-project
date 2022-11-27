@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import styles from "./Headline.module.css";
+import styles from "src/components/Headline/Headline.module.css";
 
 type Props = {
   page: string;
