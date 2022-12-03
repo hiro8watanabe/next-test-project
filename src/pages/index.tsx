@@ -9,11 +9,14 @@ import styles from "src/styles/Home.module.css";
 export default function Home() {
   const foo = 1;
 
-  const handleClick = useCallback((e: any) => {
-    console.log(e.target.href);
-    e.preventDefault();
-    alert(foo);
-  }, []);
+  const handleClick = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+      console.log(e.target.href);
+      e.preventDefault();
+      alert(foo);
+    },
+    []
+  );
 
   useEffect(() => {
     console.log("マウント時");
