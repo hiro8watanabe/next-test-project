@@ -11,7 +11,7 @@ export default function Home() {
 
   const handleClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-      console.log(e.target.href);
+      console.log(e.currentTarget.href);
       e.preventDefault();
       alert(foo);
     },
