@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import { useCallback, useEffect } from "react";
 import { Footer } from "src/components/Footer";
 import { Header } from "src/components/Header";
@@ -35,9 +36,11 @@ export default function Home() {
       </Head>
       <Header />
 
-      <a href="/about" onClick={handleClick}>
+      <Link href="/about" onClick={handleClick}>
+        {/* <a href="/about" onClick={handleClick}> */}
         ボタン
-      </a>
+        {/* </a> */}
+      </Link>
       <Main page="index" />
       <Footer />
     </div>
