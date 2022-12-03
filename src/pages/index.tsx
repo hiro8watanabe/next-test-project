@@ -9,14 +9,11 @@ import styles from "src/styles/Home.module.css";
 export default function Home() {
   const foo = 1;
 
-  const handleClick = useCallback(
-    (e: { target: { href: any }; preventDefault: () => void }) => {
-      console.log(e.target.href);
-      e.preventDefault();
-      alert(foo);
-    },
-    []
-  );
+  const handleClick = useCallback((e: any) => {
+    console.log(e.target.href);
+    e.preventDefault();
+    alert(foo);
+  }, []);
 
   useEffect(() => {
     console.log("マウント時");
@@ -41,6 +38,7 @@ export default function Home() {
         ボタン
         {/* </a> */}
       </Link>
+
       <Main page="index" />
       <Footer />
     </div>
