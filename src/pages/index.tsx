@@ -1,64 +1,21 @@
+import React from "react";
 import Head from "next/head";
-import Link from "next/link";
-import React, { useCallback, useEffect, useState } from "react";
+import styles from "src/styles/Home.module.css";
 import { Footer } from "src/components/Footer";
 import { Header } from "src/components/Header";
 import { Main } from "src/components/Main";
-import styles from "src/styles/Home.module.css";
+import { useChangeBgColor } from "src/hooks/useChangeBgColor";
+import { useCounter } from "src/hooks/useCounter";
+import { useInputArray } from "src/hooks/useInputArray";
 
 export default function Home() {
-  const [count, setCount] = useState(1);
-  const [text, setText] = useState("");
-  const [isShow, setIsShow] = useState(true);
-  const [array, setArray] = useState<string[]>([]);
+  const { count, isShow, handleClick, handleFlag } = useCounter();
+  const { text, array, handleChange, handleAdd } = useInputArray();
+  useChangeBgColor();
 
-  const handleClick = useCallback(() => {
-    console.log(count);
-    if (count < 10) {
-      setCount((prevCount) => prevCount + 1);
-    }
-  }, [count]);
-
-  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value.length > 10) {
-      alert("10文字以内で入力してください");
-      return;
-    }
-    setText(e.target.value.trim());
-  }, []);
-
-  const handleFlag = useCallback(() => {
-    // setIsShow((isShow) => {
-    //   //▼最短の記述
-    //   return !isShow;
-
-    //   //▼以下と同じ意味になる
-    //   // return isShow ? false : true;
-    // });
-
-    //▼更にリファクタリング
-    setIsShow((prevIsShow) => !prevIsShow);
-  }, []);
-
-  const handleAdd = useCallback(() => {
-    setArray((prevArray) => {
-      if (prevArray.some((item) => item === text)) {
-        console.log("tuuk");
-        alert("同じ要素が存在します");
-        return prevArray;
-      }
-      setText("");
-      return [...prevArray, text];
-    });
-  }, [text]);
-
-  useEffect(() => {
-    document.body.style.backgroundColor = "#c8c8c8";
-
-    return () => {
-      document.body.style.backgroundColor = "";
-    };
-  }, []);
+  const foo = () => {
+    
+  };
 
   return (
     <div className={styles.container}>
@@ -72,9 +29,11 @@ export default function Home() {
       {/* ボタン */}
       {/* </a> */}
       {/* </Link> */}
+
       {isShow ? <h1>{count}</h1> : null}
       <button onClick={handleClick}>ボタン</button>
       <button onClick={handleFlag}>{isShow ? "非表示" : "表示"}</button>
+
       <input type="text" value={text} onChange={handleChange} />
       <button onClick={handleAdd}>追加</button>
       <ul>
@@ -82,6 +41,7 @@ export default function Home() {
           return <li key={item}>{item}</li>;
         })}
       </ul>
+
       <Main page="index" />
       <Footer />
     </div>
