@@ -1,21 +1,31 @@
-import React from "react";
 import Head from "next/head";
 import styles from "src/styles/Home.module.css";
 import { Footer } from "src/components/Footer";
 import { Header } from "src/components/Header";
 import { Main } from "src/components/Main";
-import { useChangeBgColor } from "src/hooks/useChangeBgColor";
-import { useCounter } from "src/hooks/useCounter";
-import { useInputArray } from "src/hooks/useInputArray";
 
-export default function Home() {
-  const { count, isShow, handleClick, handleFlag } = useCounter();
-  const { text, array, handleChange, handleAdd } = useInputArray();
-  useChangeBgColor();
+type Props = {
+  count: number;
+  isShow: boolean;
+  handleClick: React.MouseEventHandler<HTMLButtonElement>;
+  handleFlag: React.MouseEventHandler<HTMLButtonElement>;
+  text: string;
+  array: string[];
+  handleChange: boolean;
+  handleAdd: React.MouseEventHandler<HTMLButtonElement>;
+};
 
-  const foo = () => {
-    
-  };
+export default function Home(props: Props) {
+  const {
+    count,
+    isShow,
+    handleClick,
+    handleFlag,
+    text,
+    array,
+    handleChange,
+    handleAdd,
+  } = props;
 
   return (
     <div className={styles.container}>

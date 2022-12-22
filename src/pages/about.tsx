@@ -3,15 +3,28 @@ import styles from "src/styles/Home.module.css";
 import { Footer } from "src/components/Footer";
 import { Header } from "src/components/Header";
 import { Main } from "src/components/Main";
-import { useChangeBgColor } from "src/hooks/useChangeBgColor";
-import { useCounter } from "src/hooks/useCounter";
-import { useInputArray } from "src/hooks/useInputArray";
 
-export default function About() {
-  const { count, isShow, handleClick, handleFlag } = useCounter();
-  const { text, array, handleChange, handleAdd } = useInputArray();
-  useChangeBgColor();
+type Props = {
+  count: number;
+  isShow: boolean;
+  handleClick: React.MouseEventHandler<HTMLButtonElement>;
+  handleFlag: React.MouseEventHandler<HTMLButtonElement>;
+  text: string;
+  array: string[];
+  handleChange: boolean;
+  handleAdd: React.MouseEventHandler<HTMLButtonElement>;
+};
 
+export default function About({
+  count,
+  isShow,
+  handleClick,
+  handleFlag,
+  text,
+  array,
+  handleChange,
+  handleAdd,
+}: Props) {
   return (
     <div className={styles.container}>
       <Head>
@@ -21,9 +34,9 @@ export default function About() {
 
       <Header />
 
-      {isShow ? <h1>{count}</h1> : null}
       <button onClick={handleClick}>ボタン</button>
       <button onClick={handleFlag}>{isShow ? "非表示" : "表示"}</button>
+      {isShow ? <h1>{count}</h1> : null}
 
       <input type="text" value={text} onChange={handleChange} />
       <button onClick={handleAdd}>追加</button>
