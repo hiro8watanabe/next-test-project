@@ -6,7 +6,6 @@ export const useCounter = () => {
   const [isShow, setIsShow] = useState(true);
 
   const handleClick = useCallback(() => {
-    console.log(count);
     if (count < 10) {
       setCount((prevCount) => prevCount + 1);
     }
