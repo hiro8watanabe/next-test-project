@@ -11,7 +11,7 @@ type Props = {
   handleFlag: React.MouseEventHandler<HTMLButtonElement>;
   text: string;
   array: string[];
-  handleChange: boolean;
+  handleChange: React.ChangeEventHandler<HTMLInputElement>;
   handleAdd: React.MouseEventHandler<HTMLButtonElement>;
 };
 
