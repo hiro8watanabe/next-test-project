@@ -11,7 +11,7 @@ type Props = {
   handleFlag: React.MouseEventHandler<HTMLButtonElement>;
   text: string;
   array: string[];
-  handleChange: boolean;
+  handleChange: React.ChangeEventHandler<HTMLInputElement>;
   handleAdd: React.MouseEventHandler<HTMLButtonElement>;
 };
 
@@ -34,19 +34,19 @@ export default function About({
 
       <Header />
       <div>
-      <button onClick={handleClick}>ボタン</button>
-      <button onClick={handleFlag}>{isShow ? "非表示" : "表示"}</button>
-      {isShow ? <h1>{count}</h1> : null}
+        <button onClick={handleClick}>ボタン</button>
+        <button onClick={handleFlag}>{isShow ? "非表示" : "表示"}</button>
+        {isShow ? <h1>{count}</h1> : null}
       </div>
 
       <div>
-      <input type="text" value={text} onChange={handleChange} />
-      <button onClick={handleAdd}>追加</button>
-      <ul>
-        {array.map((item) => {
-          return <li key={item}>{item}</li>;
-        })}
-      </ul>
+        <input type="text" value={text} onChange={handleChange} />
+        <button onClick={handleAdd}>追加</button>
+        <ul>
+          {array.map((item) => {
+            return <li key={item}>{item}</li>;
+          })}
+        </ul>
       </div>
 
       <Main page="about" />
